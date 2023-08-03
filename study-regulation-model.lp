@@ -95,3 +95,17 @@ type(module).
 % Thesis CP requirement (temporal constraint)
 % Groups
 
+type(group).
+part(plan, group, group).
+multiplicity(plan, group, group, N) :- #count{1,G : in(_, G)} = N.
+
+attr(group,id,"discrete").
+dom(group,id,ID) :- in(_, ID).
+:- val(((group,A),id),ID), val(((group,B),id),ID), A!=B.
+
+connected((group,GROUPPATH),(module,MODULEPATH),grouped) :- val(((group,GROUPPATH),id),GID), val(((module,MODULEPATH),id),MID), in(MID,GID).
+
+
+attr(group, totalcp, "sum").
+path(group, totalcp, (cp,(module,(grouped,())))).
+
