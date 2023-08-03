@@ -1,0 +1,4 @@
+[submodule "configuration-encoding"]
+	path = configuration-encoding
+	url = https://github.com/potassco/configuration-encoding
+	branch = dev
